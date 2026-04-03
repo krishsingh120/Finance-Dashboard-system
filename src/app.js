@@ -7,6 +7,9 @@ const rateLimit = require("express-rate-limit");
 const errorMiddleware = require("./middlewares/error.middleware");
 const NotFoundError = require("./errors/notFound.error");
 
+// Imports routes
+const authRoutes = require("./modules/auth/auth.routes");
+
 const app = express();
 
 // security middlewares
@@ -37,7 +40,7 @@ app.get("/health", (req, res) => {
 });
 
 // routes — baad mein mount karenge
-// app.use('/api/auth', authRoutes)
+app.use("/api/auth", authRoutes);
 // app.use('/api/users', userRoutes)
 // app.use('/api/records', recordRoutes)
 // app.use('/api/dashboard', dashboardRoutes)
