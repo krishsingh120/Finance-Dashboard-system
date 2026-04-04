@@ -11,6 +11,7 @@ const NotFoundError = require("./errors/notFound.error");
 const authRoutes = require("./modules/auth/auth.routes");
 const userRoutes = require("./modules/users/user.routes");
 const recordRoutes = require("./modules/records/record.routes");
+const dashboardRoutes = require("./modules/dashboard/dashboard.routes");
 
 const app = express();
 
@@ -45,7 +46,7 @@ app.get("/health", (req, res) => {
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/records", recordRoutes);
-// app.use('/api/dashboard', dashboardRoutes)
+app.use("/api/dashboard", dashboardRoutes);
 
 // 404 handler — sab routes ke baad
 app.use((req, res, next) => {
