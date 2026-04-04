@@ -10,6 +10,7 @@ const NotFoundError = require("./errors/notFound.error");
 // Imports routes
 const authRoutes = require("./modules/auth/auth.routes");
 const userRoutes = require("./modules/users/user.routes");
+const recordRoutes = require("./modules/records/record.routes");
 
 const app = express();
 
@@ -43,7 +44,7 @@ app.get("/health", (req, res) => {
 // routes — baad mein mount karenge
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
-// app.use('/api/records', recordRoutes)
+app.use("/api/records", recordRoutes);
 // app.use('/api/dashboard', dashboardRoutes)
 
 // 404 handler — sab routes ke baad
